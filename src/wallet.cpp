@@ -2602,7 +2602,7 @@ bool CWallet::CreateTransaction(CScript scriptPubKey, int64_t nValue, std::strin
 
     int nChangePos;
     std::string strFailReason;
-    bool rv = CreateTransaction(vecSend, wtxNew, reservekey, nFeeRetб strTxComment, nChangePos, strFailReason, coinControl);
+    bool rv = CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, strTxComment, nChangePos, strFailReason, coinControl);
     if(!strFailReason.empty())
     {
         LogPrintf("CreateTransaction(): ERROR: %s\n", strFailReason);
