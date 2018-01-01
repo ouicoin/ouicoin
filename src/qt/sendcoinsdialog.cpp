@@ -44,12 +44,7 @@ SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
 #if QT_VERSION >= 0x040700
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
     ui->lineEditCoinControlChange->setPlaceholderText(tr("Enter a OuiCoin address (e.g. iACLambeGgkxodKtfzM7huFXyPYWjz33Z2)"));
-    if (nBestHeight >= HEIGHT_TXCOMMENT) {
-        ui->editTxComment->setPlaceholderText(tr("Enter a transaction comment (Note: This information is public)"));
-    } else {
-        ui->editTxComment->setPlaceholderText(tr("(Note: This feature will be available at block height 210000)"));
-        ui->editTxComment->setEnabled(false);
-    }
+    ui->editTxComment->setPlaceholderText(tr("Enter a transaction comment (Note: This information is public)"));
 #endif
 
     addEntry();

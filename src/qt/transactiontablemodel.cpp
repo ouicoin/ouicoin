@@ -439,7 +439,7 @@ QVariant TransactionTableModel::addressColor(const TransactionRecord *wtx) const
     return QVariant();
 }
 
-QString TransactionTableModel::formatTxComment(const TransactionRecord *wtx, bool tooltip) const
+QString TransactionTableModel::formatTxComment(const TransactionRecord *wtx) const
 {
     QString wtxComment(wtx->txcomment.c_str());
     if (!wtxComment.isNull() && !wtxComment.isEmpty())
@@ -530,11 +530,12 @@ QString TransactionTableModel::formatTooltip(const TransactionRecord *rec) const
 {
     QString tooltip = formatTxStatus(rec) + QString("\n") + formatTxType(rec);
     if(rec->type==TransactionRecord::RecvFromOther || rec->type==TransactionRecord::SendToOther ||
-       rec->type==TransactionRecord::SendToAddress || rec->type==TransactionRecord::RecvWithAddress)
+       rec->type==TransactionRecord::SendToAddress || rec->type==TransactionRecord::RecvWithAddress ||
+       rec->type==TransactionRecord::SendToSelf)
     {
         tooltip += QString(" ") + formatTxToAddress(rec, true);
         if (rec->txcomment.length() > 0) {
-            tooltip += QString("\n") + formatTxComment(rec, true);
+            tooltip += QString("\n") + formatTxComment(rec);
         }
     }
     return tooltip;
@@ -569,7 +570,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         case ToAddress:
             return formatTxToAddress(rec, false);
         case TxComment:
-            return formatTxComment(rec, false);
+            return formatTxComment(rec);
         case Amount:
             return formatTxAmount(rec);
         }
@@ -589,7 +590,7 @@ QVariant TransactionTableModel::data(const QModelIndex &index, int role) const
         case ToAddress:
             return formatTxToAddress(rec, true);
         case TxComment:
-            return formatTxComment(rec, false);
+            return formatTxComment(rec);
         case Amount:
             return qint64(rec->credit + rec->debit);
         }

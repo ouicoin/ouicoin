@@ -235,7 +235,7 @@ Value createrawtransaction(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "createrawtransaction [{\"txid\":txid,\"vout\":n},...] {address:amount,...} [\"txcomment\"]\n"
+            "createrawtransaction [{\"txid\":txid,\"vout\":n},...] {address:amount,...} \"txcomment\"\n"
             "Create a transaction spending given inputs\n"
             "(array of objects containing transaction id and output number),\n"
             "sending to given address(es).\n"

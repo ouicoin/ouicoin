@@ -997,11 +997,13 @@ Value sendmany(const Array& params, bool fHelp)
         nMinDepth = params[2].get_int();
 
     CWalletTx wtx;
+    std::string strTxComment;
+
     wtx.strFromAccount = strAccount;
     if (params.size() > 3 && params[3].type() != null_type && !params[3].get_str().empty())
         wtx.mapValue["comment"] = params[3].get_str();
     if (params.size() > 4 && params[4].type() != null_type && !params[4].get_str().empty()) {
-        std::string strTxComment = params[4].get_str();
+        strTxComment = params[4].get_str();
         if (strTxComment.substr(0,5).compare("text:") != 0)
             strTxComment = "text:" + strTxComment;
         if (strTxComment.length() > MAX_TXCOMMENT_LEN)
@@ -1044,7 +1046,7 @@ Value sendmany(const Array& params, bool fHelp)
     int64_t nFeeRequired = 0;
     int nChangePos;
     std::string strFailReason;
-    bool fCreated = pwalletMain->CreateTransaction(vecSend, wtx, keyChange, nFeeRequired, nChangePos, strFailReason);
+    bool fCreated = pwalletMain->CreateTransaction(vecSend, wtx, keyChange, nFeeRequired, strTxComment, nChangePos, strFailReason);
     if (!fCreated)
     {
         if (totalAmount + nFeeRequired > pwalletMain->GetBalance())
