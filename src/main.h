@@ -124,7 +124,7 @@ static const int64_t GetTargetSpacing = BLOCK_SPACING;
 /** "reject" message codes **/
 static const unsigned char REJECT_INVALID = 0x10;
 /** MasterNode required collateral */
-inline int64_t MasternodeCollateral(int nHeight) { return 50000; } // 50K OUI required as collateral
+inline int64_t MasternodeCollateral(int nHeight) { return 25000; } // 50K OUI required as collateral
 /** Coinbase transaction outputs can only be staked after this number of new blocks (network rule) */
 static const int nStakeMinConfirmations = 5;
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
@@ -144,7 +144,7 @@ static const unsigned int nNonceTest = 0;
 /** Genesis block subsidy */
 static const int64_t nGenesisBlockReward = 1 * COIN;
 /** Reserve block subsidy */
-static const int64_t nBlockRewardReserve = 1840010 * COIN; //
+static const int64_t nBlockRewardReserve = 2200000 * COIN; //
 /** Starting block subsidy */
 static const int64_t nBlockPoWReward = 0 * COIN;
 /** Superblock subsidy */
