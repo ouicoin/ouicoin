@@ -88,13 +88,13 @@ static const unsigned int DEFAULT_SCALE_BLOCK_SIZE_OPTIONS = 1;
 /** PoS Reward */
 static const int64_t COIN_YEAR_REWARD = 10 * COIN; // Corrected in v1.0.2.0+
 /** PoS Reward Fixed */
-static const int64_t COIN_YEAR_REWARD_FIXED = 10 * CENT; // 1.5%
+static const int64_t COIN_YEAR_REWARD_FIXED = 10 * CENT; // 10%
 /** PoS Superblock Reward */
 static const int64_t COIN_SPRB_REWARD = 15 * COIN; // Corrected in v1.0.2.0+
 /** PoS Superblock Reward Fixed */
-static const int64_t COIN_SPRB_REWARD_FIXED = 15 * CENT; // 3%
+static const int64_t COIN_SPRB_REWARD_FIXED = 15 * CENT; // 15%
 /** MN Reward Fixed */
-static const int64_t MN_REWARD_FIXED = 40 * CENT; // 9% total, 1.5%/3% for standard net, 7.5%/6% for MNs
+static const int64_t MN_REWARD_FIXED = 40 * CENT; // 55% total, 10%/15% for standard net, 40% for MNs
 /** Block spacing preferred */
 static const int64_t BLOCK_SPACING = 5 * 60;
 /** Block spacing minimum */
